@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<!-- Fonts -->
+    <link href="{% static 'product/style.css' %} " rel="stylesheet">
+    <meta name="robots" content="noindex,follow" />
+{% endblock %}
+
+
+{% block body %}
+<main class="container">
+
+      <!-- Left Column / Headphones Image -->
+      <div class="left-column">
+        <img src="/media/{{object.mainimage}}" alt="">
+      </div>
+
+
+      <!-- Right Column -->
+      <div class="right-column">
+
+        <!-- Product Description -->
+        <div class="product-description">
+          <span>{{object.category}}</span>
+          <h1>{{object.name}}</h1>
+          <p>{{object.preview_text}}</p>
+        </div>
+
+        <!-- Product Details -->
+        <div class="product-description">
+          <br><p>{{object.details_text}}</p><br>
+        </div>
+        <!-- Product Pricing -->
+        <div class="product-price">
+          <span class="">INR ₹</span>
+           <span class="">{{product.price}}</span>
+          <a href="{% url 'app_cart:atc' pk=object.id  %}" class="cart-btn">Add to cart</a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+    {% endblock %}

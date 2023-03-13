@@ -1,0 +1,74 @@
+{% load cart_tag %}
+<div class="col-12">
+    <header class="row">
+        <!-- Top Nav -->
+        <div class="col-12 bg-dark py-2 d-md-block d-none">
+            <div class="row">
+                <div class="col-auto me-auto">
+                    <ul class="top-nav">
+                        <li>
+                            <a href="tel:+123-456-7890"><i class="fa fa-phone-square me-2"></i>+123-456-7890</a>
+                        </li>
+                        <li>
+                            <a href="mailto:mail@ecom.com"><i class="fa fa-envelope me-2"></i>mail@ecom.com</a>
+                        </li>
+                    </ul>
+                </div>
+                {% if request.user.is_authenticated %}
+                {%else%}
+                <div class="col-auto">
+                    <ul class="top-nav">
+                        <li>
+                            <a href="{% url 'app_login:signup' %}"><i class="fas fa-user-edit me-2"></i>Register</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'app_login:login' %}"><i class="fas fa-sign-in-alt me-2"></i>Login</a>
+                        </li>
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="col-12 bg-white pt-4 ">
+            <div class="row">
+                <div class="col-lg-auto">
+                    <div class="site-logo text-center text-lg-left">
+                        <a href="{% url 'app_shop:home' %}">E-Commerce</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 mx-auto mt-4 mt-lg-0">
+                    <form action="#">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="search" class="form-control border-dark" placeholder="Search..." required>
+                                <button class="btn btn-outline-dark"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                {% if request.user.is_authenticated %}
+                <div class="col-lg-auto text-center text-lg-left header-item-holder navbar">
+                    <a href="{% url 'app_cart:cart' %}" class="header-item">
+                        <i class="fas fa-shopping-bag me-2"></i><span id="header-qty" class="me-3">{{ request.user | cart_total }}</span>
+                    </a>
+                    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-user-circle-o"></i>{{request.user.profile.username}}</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a href="{% url 'app_login:change_profile' %}" class="dropdown-item">Profile</a>
+                            <a href="{% url 'payment:orders' %}" class="dropdown-item">Orders</a>
+                            <div class="dropdownn-divider">
+                                <a href="{% url 'app_login:logout' %}" class="dropdown-item">Logout</a>  
+                           </div>
+                    </div>    
+                </div>
+                {% endif %}
+            </div>
+
+        <!-- Header -->
+
+    </header>
+</div>

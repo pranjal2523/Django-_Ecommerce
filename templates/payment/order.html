@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h2 class="tect-center">
+            <strong>Your Order</strong>
+        </h2>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mt-5">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Order Id</th>
+                                    <th scope="col">Product</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            {% for order in orders%}
+                                <tr>
+                                    <th scope="row">{{ forloop.counter }}</th>
+                                    <td><a href="#">{{ order.orderid }}</a> </td>
+                                    <td> 
+                                        {% for item in order.orderitems.all %}  
+                                            {{item}}
+                                            
+                                        {% endfor %}
+                                    </td>
+                                    <td>
+                                        <span class="badge badge-primary"> Processing Your Order</span>
+                                    </td>
+                                </tr>
+
+                            {% endfor %}
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
