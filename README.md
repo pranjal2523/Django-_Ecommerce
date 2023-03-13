@@ -75,4 +75,4 @@
 	python manage.py migrate app_name
   
 ###Thanks for Reading...###
-# Happy Coading!!! #
+# Happy Coding!!! #
