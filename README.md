@@ -1,21 +1,21 @@
 # Django-Ecommerce 
-  Ecommerce website In Django
+  	Ecommerce website In Django
   
 ## Create Virtualenv with Python3
 	create virtual environment using below command
-  pip install virtualenv
-  virtualenv env_name
-
-## Install Django and all Modules with pip
-	pip install -r requirement.txt 
+  	pip install virtualenv
+  	virtualenv env_name
   
 ## To activate virtualenv in windows run below command
-  env_name\scripts\activate
+  	env_name\scripts\activate
+	
+## Install Django and all Modules with pip
+	pip install -r requirement.txt 
  
 ## Update requirements.txt file
 	pip3 freeze > requirement.txt
 
-## Run on Production Server
+## Run Django Server
 	python manage.py runserver
   
 
@@ -59,9 +59,6 @@
 
 ## Create New App in Django
 	python manage.py startapp app_name
-
-## Run Django
-	python manage.py runserver
 
 ## Create Superuser
 	python manage.py createsuperuser
